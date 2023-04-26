@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid generator</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js" defer></script>
+</head>
+<style id="grid-styles">
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+</style>
+<body>
+    <div class="app-container">
+        <div class="main">
+            <div id="grid-preview" class="grid" style="opacity: 1;">
+                <div data-index="0" class="grid__grid-item">Item 1</div>
+                <div data-index="1" class="grid__grid-item">Item 2</div>
+                <div data-index="2" class="grid__grid-item">Item 3</div>
+                <div data-index="3" class="grid__grid-item">Item 4</div>
+                <div data-index="4" class="grid__grid-item">Item 5</div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="controls controls--two-column">
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="num_items" id="number_items" min="1" autofocus="">
+                    <label class="sidebar__label" for="number_items">Items</label>
+                </div>
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="number_columns" id="number_columns" min="1">
+                    <label class="sidebar__label" for="number_columns">Columns</label>
+                </div>
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="grid_gap" id="grid_gap" min="0">
+                    <label class="sidebar__label" for="grid_gap">Grid Gap
+                        <sup>(px)</sup>
+                    </label>
+                </div>
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="max_grid_width" id="max_grid_width"
+                           placeholder="optional">
+                    <label class="sidebar__label" for="max_grid_width">Max width
+                        <sup>(px)</sup>
+                    </label>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group control-group--lorem" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input sidebar__input--checkbox" type="checkbox" name="toggle_demo_content"
+                           id="toggle_demo_content" value="lorem">
+                    <label class="sidebar__label" for="toggle_demo_content">Placeholder Text</label>
+                </div>
+                <div class="control-group control-group--lorem" style="opacity: 1; transform: translateY(0px);">
+                    <label class="sidebar__label sidebar__label--layout" for="toggle_prebuilt_layout">Starter
+                        Layouts</label>
+                    <select class="sidebar__input--select" name="toggle_prebuilt_layout" id="toggle_prebuilt_layout">
+                        <option value="0" selected="">Default 3x3</option>
+                        <option value="football">Football Formation</option>
+                        <option value="gallery">Gallery</option>
+                        <option value="header-footer">Header &amp; Footer</option>
+                        <option value="website">Generic Website</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="selected-item-controls" class="selected-item-controls" style="height: auto; display: none;">
+                <p class="selected-item-controls__title">Selected Item(s) properties</p>
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="selected_column_span" id="selected_column_span"
+                           min="1" value="1">
+                    <label class="sidebar__label" for="selected_column_span">Column Span</label>
+                </div>
+                <div class="control-group" style="opacity: 1; transform: translateY(0px);">
+                    <input class="sidebar__input" type="number" name="selected_row_span" id="selected_row_span" min="1"
+                           value="1">
+                    <label class="sidebar__label" for="selected_row_span">Row Span</label>
+                </div>
+
+            </div>
+
+            <div class="grid-buttons" style="opacity: 1; transform: translateY(0px);">
+                <button id="get_code_btn" class="btn btn--code">Get Code</button>
+                <button id="reset_btn" class="btn btn--reset">Reset</button>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
